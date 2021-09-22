@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{%block title%}
+Home Page
+{%endblock%}
+
+{%block content%}
+<div class="container">
+    <div style="display: flex; justify-content: center; margin-top: 2em;">
+        <h1>
+            Game ChatBot
+        </h1>
+    </div>
+    <div  style="display: flex; justify-content: space-evenly;">
+        <a href="{{url_for('chatBot')}}"><button class="btn btn-outline-primary btn-lg" type="submit"  >
+            Chat with The Bot
+        </button></a>
+        <a href="{{url_for('likedGames')}}"><button class="btn btn-outline-primary btn-lg">
+            Liked Games
+        </button> </a>
+    </div>
+</div>
+<style>
+    div > a{
+        margin-top: 30%;
+    }
+</style>
+{%endblock%}

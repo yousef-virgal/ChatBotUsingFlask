@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+
+{% block title%}
+Chat Menu
+{%endblock%}
+
+{%block content%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-dark bg-dark">
+<a href="{{url_for('index')}}">
+    <button class="btn btn-outline-primary btn-lg">
+        <i class="fa fa-angle-left" style="font-size:48px"></i>
+    </button>
+    
+</a>
+<h1 style="margin-right: 45%;">
+    Chat Bot
+</h1>
+</nav>
+<form method="POST" action="{{url_for('chatBot')}}">
+<div class="input-group mb-3" style="display: flex; justify-content: center; margin-top: 5%;">
+    <input class="form-control" type="text" placeholder="Type something" style="border-radius: 1em; margin: 0 10em;" id='input' name="input">
+</div>
+<input type="submit" class="btn  btn-outline-primary btn-lg" style="margin: 0 45%;" value="Enter">
+</form>
+{% if showChat%}
+<div class="card" style="margin: 10% 20%;">
+    <div class="card-body" style="color: black;">
+      {{botAnswer | safe }}
+    </div>
+  </div>
+{%endif%}
+<style>
+    input[type="text"]:focus{
+        outline: none;
+    }
+</style>
+{%endblock%}

@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+
+{%block title%}
+Liked Games
+{%endblock%}
+
+{%block content%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-dark bg-dark">
+    <a href="{{url_for('index')}}">
+        <button class="btn btn-outline-primary btn-lg">
+            <i class="fa fa-angle-left" style="font-size:48px"></i>
+        </button>
+
+    </a>
+    <h1 style="margin-right: 45%;">
+        Liked Games
+    </h1>
+</nav>
+<div style="display: flex; align-items: center; flex-direction: column;">
+    {%for item in items%}
+    <div class="card" style="background-color: #292929; width: 50% ; height: 30em; border-radius: 1em; margin: 10px;">
+        <div style="display: flex; flex-direction: row;">
+            <img src="{{item.backgroundImage}}" alt="game Image"
+                style=" width: 50% ; height: 100%; margin-left: 5px; margin-top: 5px; border-radius: 1em;">
+            <h1 style="margin-left: 1em; size: 4pt;">{{item.name}}</h1>
+        </div>
+        <div>
+            <p style="margin-top: 2em; size: 10pt;"> Score : {{item.score}}%</p>
+            <p>play time : {{item.playtime}} hours</p>
+        </div>
+        <a href="/delete/{{item.id}}">
+            <button class="btn btn-outline-primary btn-lg" style="float: right; margin-right: 20px;">
+                Delete
+            </button>
+        </a>
+    </div>
+    {%endfor%}
+</div>
+
+<style>
+    p{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 18pt;
+    }
+</style>
+{%endblock%}
